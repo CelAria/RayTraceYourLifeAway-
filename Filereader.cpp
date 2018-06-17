@@ -64,7 +64,7 @@ string readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* 
 					continue;
 				}
 				//construct camera object with these parameters 
-				Camera mycamera(pos, fov, f, a);
+				Camera* mycamera= new Camera(pos, fov, f, a);
 				
 			}
 			if (words.at(0) == "Sphere") {
@@ -113,7 +113,7 @@ string readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* 
 					//go to next line
 					continue;
 				}
-				Sphere mysphere(pos, rad, amb, dif, spec, shi);
+				Sphere* mysphere= new Sphere(pos, rad, amb, dif, spec, shi);
 				//push object into spheres object array
 				g.push_back(mysphere);
 			}
@@ -157,9 +157,9 @@ string readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* 
 					//go to next line
 					continue;
 				}
-				Plane myplane(nor, pos, amb, dif, spec, shi);
+				Plane* myplane = new Plane(nor, pos, amb, dif, spec, shi);
 				//push plane into object array of planes
-				planes.push_back(myplane);
+				g.push_back(myplane);
 
 
 			}
@@ -179,9 +179,9 @@ string readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* 
 					//go to next line
 					continue;
 				}
-				Light mylight(pos, col);
+				Light* mylight= new Light(pos, col);
 				//push light into array of lights
-				lights.push_back(mylight);
+				l.push_back(mylight);
 			}
 		}
 		return "success";
