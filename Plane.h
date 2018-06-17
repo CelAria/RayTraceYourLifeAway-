@@ -3,6 +3,7 @@
 #include "Screen.h"
 #include "Ray.h"
 #include "Intersection.h"
+#include "Geometry.h"
 #include <vector>
 
 
@@ -13,11 +14,11 @@ private:
 	glm::vec3 amb;
 	glm::vec3 dif;
 	glm::vec3 spec;
-	int shi;
+	float shi;
 
 public:
 	//constructor
-	Plane(glm::vec3 normal, glm::vec3 position, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, int shininess);
+	Plane(glm::vec3 normal, glm::vec3 position, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, float shininess);
 
 	//declare intersection method
 	Intersection testIntersection(Ray myray);
