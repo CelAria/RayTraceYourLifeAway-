@@ -5,14 +5,6 @@
 
 using namespace std;
 
-//public:
-//
-//	inline Camera get_camera() const { return camera; }
-//	inline vector<Light> get_lights() const { return lights; }
-//	inline vector<Sphere> get_spheres() const { return spheres; }
-//	inline vector<Plane> get_planes() const { return planes; }
-//
-
 
 //function that parses file
 string readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* &mycamera){

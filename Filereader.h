@@ -17,7 +17,7 @@ using namespace std;
 
 
 //define readfile function
-std::string readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* &mycamera);
+//std::string Filereader::readfile(string myfile, vector<Geometry*> &g, vector<Light*> &l, Camera* &mycamera);
 
 
 
