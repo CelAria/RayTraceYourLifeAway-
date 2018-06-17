@@ -152,8 +152,6 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CImg.h" />
-    <ClInclude Include="Filereader.cpp" />
-    <ClInclude Include="Filereader.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Plane.h" />
