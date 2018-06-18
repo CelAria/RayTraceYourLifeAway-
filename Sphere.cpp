@@ -18,7 +18,7 @@ using namespace std;
 		shi = shininess;
 	}
 
-	// writing a function to compute if there's an intersection 
+	// function to compute if there's an intersection and return normal at intersection
 	Intersection Sphere::testIntersection(Ray myray) {
 
 
@@ -40,10 +40,29 @@ using namespace std;
 		double alpha_1 = (-b + sqrt(determinate)) / (2 * a);
 		double alpha_2 = (-b - sqrt(determinate)) / (2 * a);
 
-		if (alpha_2 < 0) return Intersection(myray.pos + (float(alpha_1)* myray.dir));
+		glm::vec3 unitnormal;
+		glm::vec3 subtr;
+
+		//if one root is negative return closer intersection and negate normal
+		if (alpha_2 < 0) {
+
+			//set subtr to surface point where interseciton happens
+			subtr =myray.pos + (float(alpha_1)* myray.dir);
+			//set value of unitnormal NEGATE
+			unitnormal = -1.0f*(float(1 / rad)*(subtr));
+			//return intersection function
+			return Intersection(myray.pos + (float(alpha_1)* myray.dir), unitnormal);
+		}
 
 		//return point on surface if there is an intersection 
-		else return Intersection(myray.pos + (float(alpha_2)* myray.dir));
+		else {
+			//set subtr to surface point where interseciton happens
+			subtr = myray.pos + (float(alpha_1)* myray.dir);
+			//set value of unitnormal
+			unitnormal = float(1 / rad)*(subtr);
+			//return intersection function
+			return Intersection(myray.pos + (float(alpha_1)* myray.dir), unitnormal);
+		}
 	}
 
 	////print method for sphere array

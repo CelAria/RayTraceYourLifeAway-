@@ -1,4 +1,6 @@
 #pragma once
+#define GLM_SWIZZLE
+
 #include "stdafx.h"
 #include "Screen.h"
 #include "Ray.h"
@@ -22,6 +24,8 @@ public:
 
 	//function for testing intersection
 	Intersection testIntersection(Ray myray);
+
+	glm::vec3 calcNormal(Intersection myintersection);
 
 	glm::vec3 getPos() {
 		return pos;

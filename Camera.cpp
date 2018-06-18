@@ -21,7 +21,6 @@ void Camera::changeAspect(Screen* &myscreen) {
 		}
 	}
 
-
 // takes in x, y position from "screen" 
 	Ray Camera::viewRay(double x, double y, Screen* &myscreen) {
 
@@ -71,17 +70,41 @@ void Camera::changeAspect(Screen* &myscreen) {
 			//use the intersect function for each child class of object
 			if ((*iter)->testIntersection(myray).is_intersection && t < tNear) {
 				hitObject = *iter;
+				return true;
 				}
 		}
 	}
 
-	// takes in ray object (from viewray), takes in objects, lights, options
-	glm::vec3 Camera::castRay(Ray myray, std::vector<class Sphere> &spheres, std::vector<class Plane> &planes, std::vector<class Light> &lights) {
-	
-	
-		return myray.dir;
-	
+	//glm::vec3 castRay(Ray* &myray, vector<Geometry*> &objects, Camera* &mycamera)
+	//{
+	//	glm::vec3 hitColor = glm::vec3(0, 0, 0);
+	//	const Geometry *hitObject = nullptr; // this is a pointer to the hit object 
+	//	float t; // this is the intersection distance from the ray origin to the hit point 
+	//	if (mycamera->trace(*myray, objects, t, hitObject)) {
+	//		glm::vec3 Phit= myray->pos + myray->dir * t;
+	//		glm::vec3 Nhit;
+	//		
+	//		Vec2f tex;
+	//		hitObject->getSurfaceData(Phit, Nhit, tex);
+	//		// Use the normal and texture coordinates to shade the hit point.
+	//		// The normal is used to compute a simple facing ratio and the texture coordinate
+	//		// to compute a basic checker board pattern
+	//		float scale = 4;
+	//		float pattern = (fmodf(tex.x * scale, 1) > 0.5) ^ (fmodf(tex.y * scale, 1) > 0.5);
 
-	}
+	//		//confirm if you can make myray->dir negative by putting sign in front? 
+	//		hitColor = std::max(0.f, glm::dot(Nhit, -(myray->dir))) * mix(hitObject->color, hitObject->color * 0.8, pattern);
+	//	}
+
+	//	return hitColor;
+	//}
+	//// takes in ray object (from viewray), takes in objects, lights, options
+	//glm::vec3 Camera::castRay(Ray myray, std::vector<class Sphere> &spheres, std::vector<class Plane> &planes, std::vector<class Light> &lights) {
+	//
+	//
+	//	return myray.dir;
+	//
+
+	//}
 
 

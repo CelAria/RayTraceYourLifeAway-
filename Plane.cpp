@@ -25,10 +25,14 @@
 	
 	//if denominator is smaller than a very small value
 	if (denom > 1e-6) {
-		glm::vec3 p0l0 =pos - myray.dir; 
+
+		//need to find P0 properly
+	
+		glm::vec3 p0l0 = pos -myray.pos; 
 		float t = glm::dot(p0l0, nor) / denom;
 
-		return(Intersection(myray.pos + t * myray.dir));
+		//return point of intersection and normal
+		return Intersection((myray.pos + t * myray.dir), nor);
 	}
 	return Intersection();
 	}
