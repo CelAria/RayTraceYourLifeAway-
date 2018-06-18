@@ -25,7 +25,7 @@ public:
 	//function for testing intersection
 	Intersection testIntersection(Ray myray);
 
-	glm::vec3 calcNormal(Intersection myintersection);
+	//glm::vec3 calcNormal(Intersection myintersection);
 
 	glm::vec3 getPos() {
 		return pos;

@@ -57,40 +57,45 @@ void Camera::changeAspect(Screen* &myscreen) {
 		return ray;
 	}
 
-	boolean Camera::trace(Ray myray, vector<Geometry*> &objects, float &tNear, const Geometry *&hitObject) {
+	//boolean Camera::trace(Ray myray, vector<Geometry*> &objects, float &tNear, const Geometry *&hitObject) {
 
-	tNear = INFINITY;
-	//iterate through object vector
+	//tNear = INFINITY;
+	////iterate through object vector
 
-	vector<Geometry*>::const_iterator iter = objects.begin();
+	//vector<Geometry*>::const_iterator iter = objects.begin();
 
-	//while true, iterate through objects vector 
-		for (; iter != objects.end(); ++iter) {
-			float t = INFINITY;
-			//use the intersect function for each child class of object
-			if ((*iter)->testIntersection(myray).is_intersection && t < tNear) {
-				hitObject = *iter;
-				return true;
-				}
-		}
-	}
+	////while true, iterate through objects vector 
+	//	for (; iter != objects.end(); ++iter) {
+	//		float t = INFINITY;
+	//		//use the intersect function for each child class of object
+	//		if ((*iter)->testIntersection(myray).is_intersection && t < tNear) {
+	//			hitObject = *iter;
+	//			
+	//			//we want the return value of the testIntersection 
+	//			Intersection inter = (*iter)->testIntersection(myray);
+	//			//return point of intersection into t
+	//			tNear= inter.pos;
+	//			return true;
+	//			}
+	//	}
+	//}
 
-	//glm::vec3 castRay(Ray* &myray, vector<Geometry*> &objects, Camera* &mycamera)
-	//{
-	//	glm::vec3 hitColor = glm::vec3(0, 0, 0);
-	//	const Geometry *hitObject = nullptr; // this is a pointer to the hit object 
-	//	float t; // this is the intersection distance from the ray origin to the hit point 
-	//	if (mycamera->trace(*myray, objects, t, hitObject)) {
-	//		glm::vec3 Phit= myray->pos + myray->dir * t;
-	//		glm::vec3 Nhit;
-	//		
-	//		Vec2f tex;
-	//		hitObject->getSurfaceData(Phit, Nhit, tex);
-	//		// Use the normal and texture coordinates to shade the hit point.
-	//		// The normal is used to compute a simple facing ratio and the texture coordinate
-	//		// to compute a basic checker board pattern
-	//		float scale = 4;
-	//		float pattern = (fmodf(tex.x * scale, 1) > 0.5) ^ (fmodf(tex.y * scale, 1) > 0.5);
+	////glm::vec3 castRay(Ray* &myray, vector<Geometry*> &objects, Camera* &mycamera)
+	////{
+	////	glm::vec3 hitColor = glm::vec3(0, 0, 0);
+	////	const Geometry *hitObject = nullptr; // this is a pointer to the hit object 
+	////	float t; // this is the intersection distance from the ray origin to the hit point 
+	////	if (mycamera->trace(*myray, objects, t, hitObject)) {
+	////		glm::vec3 Phit= myray->pos + myray->dir * t;
+	////		glm::vec3 Nhit;
+	////		
+	////		Vec2f tex;
+	////		hitObject->getSurfaceData(Phit, Nhit, tex);
+	////		// Use the normal and texture coordinates to shade the hit point.
+	////		// The normal is used to compute a simple facing ratio and the texture coordinate
+	////		// to compute a basic checker board pattern
+	////		float scale = 4;
+	////		float pattern = (fmodf(tex.x * scale, 1) > 0.5) ^ (fmodf(tex.y * scale, 1) > 0.5);
 
 	//		//confirm if you can make myray->dir negative by putting sign in front? 
 	//		hitColor = std::max(0.f, glm::dot(Nhit, -(myray->dir))) * mix(hitObject->color, hitObject->color * 0.8, pattern);

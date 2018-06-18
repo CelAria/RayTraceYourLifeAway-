@@ -32,10 +32,10 @@ public:
 
 	void changeAspect(Screen* &myscreen);
 
-	// declaration of viewray function
+	// creates ray going from cop through screen pixel and returns a ray 
 	Ray viewRay(double x, double y, Screen* &myscreen);
 
-	//declaration of trace function
+	//iterate through geometry array and call the testIntersection function on each one. If the ray hits an object return true. 
 	boolean trace(Ray myray, vector<Geometry*> &objects, float &tNear, const Geometry *&hitObject);
 
 	//declaration of castray function 

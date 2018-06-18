@@ -15,7 +15,6 @@ public:
 
 	
 	const glm::vec3 & getPos() const { return pos; }
-
 	const glm::vec3 & getCol() const { return col; }
 
 };

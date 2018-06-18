@@ -7,7 +7,7 @@
 #include <vector>
 
 
-class Plane : public Geometry{
+class Plane : public Geometry {
 private:
 	glm::vec3 nor;
 	glm::vec3 pos;
