@@ -65,8 +65,6 @@ Camera::Camera(glm::vec3 position, int fieldofview, int focallength, float aspec
 	//	}
 	//}
 
-
-
 	// takes in ray object (from viewray), takes in objects, lights, options
 	glm::vec3 Camera::castRay(Ray myray, std::vector<class Sphere> &spheres, std::vector<class Plane> &planes, std::vector<class Light> &lights) {
 	
