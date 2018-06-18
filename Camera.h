@@ -2,7 +2,13 @@
 #include "stdafx.h"
 #include "Screen.h"
 #include "Ray.h"
+#include "Geometry.h"
 #include <vector>
+#include <cmath>
+#include <string>
+#define GLM_ENABLE_EXPERIMENTAL
+#include "glm/gtx/string_cast.hpp"
+
 
 using namespace std;
 
@@ -23,11 +29,14 @@ private:
 	float a;
 
 public:
+
+	void changeAspect(Screen* &myscreen);
+
 	// declaration of viewray function
-	Ray viewRay(double x, double y, Screen myscreen);
+	Ray viewRay(double x, double y, Screen* &myscreen);
 
 	//declaration of trace function
-	//boolean trace(Ray myray, const std::vector < std::unique_ptr<class Object>> &objects, float &tNear, const Object *&hitObject);
+	boolean trace(Ray myray, vector<Geometry*> &objects, float &tNear, const Geometry *&hitObject);
 
 	//declaration of castray function 
 	glm::vec3 castRay(Ray myray, std::vector<class Sphere> &spheres, std::vector<class Plane> &planes, std::vector<class Light> &lights);
